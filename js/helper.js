@@ -67,4 +67,8 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
+function Location(name,location) {
+	this.name = name;
+	this.location = location;
+	this.infoWindowText = this.name + "<br>" + this.location;
+}

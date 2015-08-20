@@ -67,6 +67,7 @@ education = JSON.parse(education);
 	
 //Add the display function to the bio object
 bio.display = function() {
+			console.log("In bio: "+this.name);
 			var formattedName = HTMLheaderName.replace("%data%", bio.name);
 			//console.log("formatted name:" + formattedName);
 			$(".top-top-header").append(formattedName);

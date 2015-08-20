@@ -1,0 +1,46 @@
+@media only screen and (max-width: 440px) {
+	#hamburger svg {
+		width: 40px;
+		fill: #000;
+		display: block;
+	}
+	
+	#nav-drawer {
+		width: 300px;
+		height: 100%;
+		position: absolute;
+		/* This trasform moves the drawer off canvas. */
+		-webkit-transform: translate(-300px, 0);
+		transform: translate(-300px, 0);
+		/* Optionally, we animate the drawer. */
+		transition: transform 0.3s ease;
+	}
+	
+	#nav-drawer.open {
+		-webkit-transform: translate(0, 0);
+		transform: translate(0, 0);
+	}
+		
+	.cont {
+		flex: 1 0 75%;
+	}
+	
+	#topContacts {
+		display: none;
+	}
+	
+	.contacts {
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	.biopic {
+		width: 33%;
+		background-image: url("../images/biopic-small_lo.jpg");
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}

@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Aaron Fakename's Resume</title>
 	
 	<script src="js/jQuery.js"></script>
 	<script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
@@ -19,94 +20,91 @@
 	
 
 <body>
-<div id="nav-drawer" class="header1">
-	<ul class="main-menu">
-		<li class="menu-item"><a href="#homeSection">Home</a></li>
-		<li class="menu-item"><a href="#jobSection">Jobs</a></li>
-		<li class="menu-item"><a href="#projectSection">Projects</a></li>
-		<li class="menu-item"><a href="#credentialSection">Credentials</a></li>
-		<li class="menu-item"><a href="#miscellaneousSection">Misc</a></li>
-		<li class="menu-item"><a href="#itSection">What is IT?</a></li>
-		<li class="menu-item"><a href="#mapSection">Map</a></li>
-	</ul>
-</div>
-<div class="cont">
-<header id = "top-header" class="header2">
-	<div class = "top-top-header">
-		<a id="hamburger" class="top-top-item" href="#">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-				<path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
-			</svg>
-		</a>
-		<div id="biopic" class="biopic"></div>
+	<div id="nav-drawer" class="header1">
+		<ul class="main-menu">
+			<li class="menu-item"><a href="#homeSection">Home</a></li>
+			<li class="menu-item"><a href="#jobSection">Jobs</a></li>
+			<li class="menu-item"><a href="#projectSection">Projects</a></li>
+			<li class="menu-item"><a href="#credentialSection">Credentials</a></li>
+			<li class="menu-item"><a href="#miscellaneousSection">Misc</a></li>
+			<li class="menu-item"><a href="#itSection">What is IT?</a></li>
+			<li class="menu-item"><a href="#mapSection">Map</a></li>
+		</ul>
 	</div>
-	<ul id="topContacts" class="contacts"></ul>
-</header>
-<div id="scrolling-content" class="content">
-	<section id="homeSection">
-		<paper-material id="homeBlurb" class="sectionBlurb" elevation="1">
-			<h2>Welcome</h2>
-		</paper-material>
-	</section>
+	<div class="cont">
+		<header id = "top-header" class="header2">
+			<div class = "top-top-header">
+				<a id="hamburger" class="top-top-item" href="#">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+					</svg>
+				</a>
+				<div id="biopic" class="biopic"></div>
+			</div>
+			<ul id="topContacts" class="contacts"></ul>
+		</header>
+		<div id="scrolling-content" class="content">
+			<section id="homeSection">
+				<paper-material id="homeBlurb" class="sectionBlurb" elevation="1">
+					<h2>Welcome</h2>
+				</paper-material>
+			</section>
 
-	<section id="jobSection">
-		<paper-material id="jobBlurb" class="sectionBlurb" elevation="1">
-			<h2>Jobs</h2>
-			<p>Here is some general information about my professional background</p>
-		</paper-material>
-		<resume-cards data="work" fileformat="js"></resume-cards>
-	</section>
-	
-	<section id="projectSection">
-		<paper-material id="projectBlurb" class="sectionBlurb" elevation="1">
-			<h2>Projects</h2>
-			<p>Here is some general information about my projects background</p>
-		</paper-material>
-		<resume-cards data="projects" fileformat="js"></resume-cards>
-	</section>
-	
-	<section id="credentialSection">
-		<paper-material id="credentialsBlurb" class="sectionBlurb" elevation="1">
-			<h2>Credentials</h2>
-			<p>Here is some general information about my credentials</p>
-		</paper-material>
-		<resume-cards data="credentials" fileformat="js"></resume-cards>
-	</section>
-	
-	<section id="miscellaneousSection">
-		<paper-material id="miscellaneousBlurb" class="sectionBlurb" elevation="1">
-			<h2>Miscellaneous</h2>
-			<p>Here is some miscellaneous information</p>
-		</paper-material>
-		<resume-cards data="miscellaneous" fileformat="js"></resume-cards>
-	</section>
-	
-	<section id="itSection">
-		<paper-material id="itBlurb" class="sectionBlurb" elevation="1">
-			<h2>What is IT?</h2>
-			<p>Here is some general information about the IT diagram</p>
-		</paper-material>
-		<paper-material id="itCard" elevation="1">
-			<circle-pack></circle-pack>
-		</paper-material>
-	</section>
-	
-	<section id="mapSection">
-		<paper-material id="mapBlurb" class="sectionBlurb" elevation="1">
-			<h2>Map</h2>
-			<p>Here is some places I have lived and worked</p>
-		</paper-material>
-		<paper-material id="mapCard" elevation="1">
-			<div id="map-div"></div>
-		</paper-material>
-	</section>
-</div>
-<footer><ul id="bottomContacts" class="contacts"></ul></footer>
-</div>
-
-
-<script>
-
-</script>
+			<section id="jobSection">
+				<paper-material id="jobBlurb" class="sectionBlurb" elevation="1">
+					<h2>Jobs</h2>
+					<p>Here is some general information about my professional background</p>
+				</paper-material>
+				<resume-cards data="work" fileformat="js"></resume-cards>
+			</section>
+			
+			<section id="projectSection">
+				<paper-material id="projectBlurb" class="sectionBlurb" elevation="1">
+					<h2>Projects</h2>
+					<p>Here is some general information about my projects background</p>
+				</paper-material>
+				<resume-cards data="projects" fileformat="js"></resume-cards>
+			</section>
+			
+			<section id="credentialSection">
+				<paper-material id="credentialsBlurb" class="sectionBlurb" elevation="1">
+					<h2>Credentials</h2>
+					<p>Here is some general information about my credentials</p>
+				</paper-material>
+				<resume-cards data="credentials" fileformat="js"></resume-cards>
+			</section>
+			
+			<section id="miscellaneousSection">
+				<paper-material id="miscellaneousBlurb" class="sectionBlurb" elevation="1">
+					<h2>Miscellaneous</h2>
+					<p>Here is some miscellaneous information</p>
+				</paper-material>
+				<resume-cards data="miscellaneous" fileformat="js"></resume-cards>
+			</section>
+			
+			<section id="itSection">
+				<paper-material id="itBlurb" class="sectionBlurb" elevation="1">
+					<h2>What is IT?</h2>
+					<p>Here is some general information about the IT diagram</p>
+				</paper-material>
+				<paper-material id="itCard" elevation="1">
+					<circle-pack></circle-pack>
+				</paper-material>
+			</section>
+			
+			<section id="mapSection">
+				<paper-material id="mapBlurb" class="sectionBlurb" elevation="1">
+					<h2>Map</h2>
+					<p>Here is some places I have lived and worked</p>
+				</paper-material>
+				<paper-material id="mapCard" elevation="1">
+					<div id="map-div"></div>
+				</paper-material>
+			</section>
+		</div>
+		<footer>
+			<ul id="bottomContacts" class="contacts"></ul>
+		</footer>
+	</div>
 </body>
 </html>

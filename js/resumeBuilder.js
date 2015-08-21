@@ -67,7 +67,7 @@ education = JSON.parse(education);
 	
 //Add the display function to the bio object
 bio.display = function() {
-			console.log("In bio: "+this.name);
+			//console.log("In bio: "+this.name);
 			var formattedName = HTMLheaderName.replace("%data%", bio.name);
 			//console.log("formatted name:" + formattedName);
 			$(".top-top-header").append(formattedName);
@@ -132,14 +132,14 @@ $("#scrolling-content").bind( 'scroll', '#scrolling-content', function(){
 	//console.log("scrolling");
 		if
       ($("#scrolling-content").scrollTop() > 20){
-		  $("#role").addClass("scroll-hide");
+		  //$("#role").addClass("scroll-hide");
 		  $("#topContacts").addClass("scroll-hide");
 		  $("#biopic").addClass("scroll-hide");
 			//updateSliderMargin();
 		}
 		else
 		{
-			$("#role").removeClass("scroll-hide");
+			//$("#role").removeClass("scroll-hide");
 			$("#topContacts").removeClass("scroll-hide");
 			$("#biopic").removeClass("scroll-hide");
 			//updateSliderMargin();

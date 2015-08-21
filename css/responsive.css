@@ -1,4 +1,4 @@
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 600px) {
 	#hamburger svg {
 		width: 40px;
 		fill: #000;
@@ -25,6 +25,10 @@
 		flex: 1 0 75%;
 	}
 	
+	.header-role {
+		font-size: 1em;
+	}
+	
 	#topContacts {
 		display: none;
 	}
@@ -39,6 +43,7 @@
 @media only screen and (min-width: 800px) {
 	.biopic {
 		width: 33%;
+		min-height: 100px;
 		background-image: url("../images/biopic-small_lo.jpg");
 		background-size: contain;
 		background-repeat: no-repeat;

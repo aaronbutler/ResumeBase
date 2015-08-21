@@ -102,7 +102,10 @@ text {
 //cut and past start		  
 		//console.log ("Find window size in circle-pack:" + $(window).width());
 		  	//var diameter = 960,
-		var diameter = $(window).width()-200,
+		var w = $(window).width();
+		if(w>=600) {w=w-200;}
+		//var diameter = $(window).width()-200,
+		var diameter = w;
     format = d3.format(",d");
 
 var pack = d3.layout.pack()

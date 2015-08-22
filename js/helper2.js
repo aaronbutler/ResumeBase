@@ -1,8 +1,15 @@
 /*
+This is the fun part. Here's where we generate the custom Google Map for the website.
+See the documentation below for more details.
+https://developers.google.com/maps/documentation/javascript/reference
+*/
+var map;    // declares a global map variable
+window.addEventListener('load', initializeMap);
+/*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
 $(document).ready(function() {
-	//console.log("In helper2");
+	//console.log("In helper2 ready");
 	//console.log("helper2 name: " +bio.name);
   $('button').click(function() {
     var iName = inName() || function(){};
@@ -15,17 +22,23 @@ Uncomment the code below when you're ready to implement a Google Map!
 
 // Calls the initializeMap() function when the page loads
 //window.addEventListener('load', initializeMap);
-initializeMap()
 
+
+  
+
+
+//map.fitBounds(mapBounds);
+
+//console.log("helper2 ready, and done");
+});
+//initializeMap();
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
 window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
+  //console.log("Resizing...");
   map.fitBounds(mapBounds);
 });
-
-});
-
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -49,12 +62,7 @@ $(document).click(function(loc) {
 
 
 
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
-var map;    // declares a global map variable
+
 
   /*
   pinPoster(locations) takes in the array of locations created by locationFinder()
@@ -219,7 +227,9 @@ function initializeMap() {
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-
+  //console.log("initializeMap, about to resize");
+  //map.fitBounds(mapBounds);
+//google.maps.event.trigger(map, 'resize');
 }
 
 

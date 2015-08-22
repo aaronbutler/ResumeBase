@@ -2,8 +2,8 @@
 +-Turn location in helper/helper2 into an object with more information available to it and use that information for better marker popups on map
 +-Change header text to font styling to hopefully fix vertical alignment
 +-Use Roboto font throughout
--create credentials and miscellaneous json content
--add skills throughout (at least one with only one skill, one with dozens, for testing,)
++-create credentials and miscellaneous json content
++-add skills throughout (at least one with only one skill, one with dozens, for testing,)
 +-tweak responsive css for tablet size
 +-tweak responsive css footer
 +-tweak responsive css menu links to em

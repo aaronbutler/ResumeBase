@@ -1,0 +1,4 @@
+20150822 Submission:
+I realize this is drastically different than the original project rubric. I settled on this because it is far closer to reality for my resume, it is far closer to my level of programming experience, and it does a pretty good job of making a visually appealing responsive page using custom polymer elements. 
+
+If this is not reviewable, let me know and I will clean up my version that is based on the JS course and project rubric.

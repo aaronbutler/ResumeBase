@@ -1,3 +1,10 @@
+20150822:
+-Add comments
+-Remove commented out code
+-Fix formatting for code review
+-Create meaningful readme.md file
+-Only use polymer element css when needed
+
 20150820:
 +-Turn location in helper/helper2 into an object with more information available to it and use that information for better marker popups on map
 +-Change header text to font styling to hopefully fix vertical alignment

@@ -1,5 +1,5 @@
 {"projects":[
-			{
+		{
 				"title": "Project 1",
 				"dates": "11/2013-11/2014",
 				"description": "a silly project",
@@ -19,5 +19,4 @@
 				"skills": ["skill1","skill2","skill3"]
 		}
 	]
-
 }

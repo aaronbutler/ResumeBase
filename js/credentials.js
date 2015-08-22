@@ -1,5 +1,5 @@
 {"credentials": [
-			{
+		{
 				"title": "A+",
 				"dates": "2014",
 				"provider": "CompTIA",
@@ -32,6 +32,5 @@
 				"url":"http://www.virginia.edu",
 				"skills": ["skill1","skill2","skill3"]
 		}
-		]
-
+	]
 }

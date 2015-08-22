@@ -5,221 +5,140 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../picturefill-import.html">
 
-
-
-
-
+<!--
+API information:
+-<resume-cards data="data" fileformat="ext"></resume-cards> will expect well-formed json in file js/data.ext
+-The json should be a single named object consisting of an array of objects with data.
+-The data objects should have a title, dates, and skills.
+-The data objects can optionally have an images property. 
+-Each image in the images array should be identified by folder/basename.
+-The picture/srcset elements will refer to folder/basename-large_hi.jpg, folder/basename-large_lo.jpg, folder/basename-medium_hi.jpg, -folder/basename-medium_lo.jpg, folder/basename-small_hi.jpg, folder/basename-small_lo.jpg
+-Any additional properties will be displayed as name:value pairs, flexibly on a single line.
+-->
 <dom-module id="resume-cards">
-<style>
-	/*Treat the host resume-cards element as a flexible container*/
-	:host {
-		display: block;
-		@apply (--layout-horizontal);
-		@apply (--layout-wrap);
-		padding: 0 0 0 5px;
-	}
-
-	.resumecard {
-		@apply (--layout-start);
-		@apply (--layout-horizontal);
-		margin: 0 25px 10px 0;
-		padding: 5px 5px 5px 5px
-	}
-</style>
-
-  <template>
-	
-     <template is="dom-repeat" items="{{items}}" as="carditem">
-		<paper-material elevation="1" class="resumecard">
-			<article id="{{genindex(carditem,'')}}">
-				<div>{{thing}}</div>
-				<h3>{{carditem.title}}</h3>
-				<div>{{carditem.dates}}</div>
-				<div id="{{genindex(carditem,'picts')}}">
-					<template is="dom-repeat" items="{{carditem.images}}">
-						<picture>
-							<!--<source srcset="images/01-large_hi.jpg 2x, images/01-large_lo.jpg" media="(min-width: 810px)">
-							<source srcset="images/01-medium_hi.jpg 2x, images/01-medium_lo.jpg" media="(max-width: 600px)">
-							<source srcset="images/01-small_hi.jpg 2x, images/01-small_lo.jpg" media="(max-width: 440px)">
-							<img src="images/01-medium_lo.jpg">-->
-							<source srcset="{{srcsetter(item,'large')}}" media="(max-width: 810px)">
-							<source srcset="{{srcsetter(item,'medium')}}" media="(max-width: 600px)">
-							<source srcset="{{srcsetter(item,'small')}}" media="(max-width: 441px)">
-							<img src = "{{srcer(item,'medium')}}">
-						</picture>
-					</template>
-				</div>
-				<div class="skills-box">
-					<div>SKILLS:&nbsp</div>
-					<ul class="section-skills">
-						<template is="dom-repeat" items="{{carditem.skills}}" as="skill">
-						<li>{{skill}}</li>
-						</template>
-					</ul>
-				</div>
-				<template is="dom-repeat" items="{{_toArray(carditem)}}" as="therest" filter="remainder">
-					<div class="the-rest"><div>{{therest.name}}</div><div>{{therest.value}}</div></div>
-				</template>
-			</article>
-		</paper-material>
-      </template>
-  </template>
-
-  <script>
-    (function () {
-      Polymer({
-        is: 'resume-cards',
-        properties: {
-          items: {
-            type: Array,
-            notify: true,
-          },
-		  data: {
-			type: String,
-			value: "resume",
-		  },
-		  fileformat: {
-			type: String,
-			value: "json"
-		  }
-        },
-		
-		_toArray: function(obj) {
-          return Object.keys(obj).map(function(key) {
-            return {name: key, value: obj[key]};
-          });
-        },
-		
-		remainder: function(card) {
-			return card.name != "title" && card.name != "dates" && card.name != "skills" && card.name != "images";
-		},
-		
-		genindex: function(card,prefix) {
-			var cardid = card.title ? prefix+card.title.replace(" ","_") : prefix+Math.floor((Math.random()*10000)+1); 
-			return cardid
-		},
-		
-		srcsetter: function(image,size) {
-			//console.log("in srcset function");
-			var ss =  image+'-'+size+'_hi.jpg 2x, '+image+'-'+size+'_lo.jpg';
-			//console.log(ss);
-			return ss;
-		},
-		
-		srcer: function(im,size) {
-			return im+'-'+size+'_lo.jpg';
-			//return "/psk/images/01-medium_lo.jpg";
-		},
-		
-        ready: function() {
-			//console.log("in resume-cards ready");
-
-			var resits = [];
-			var u = "js/"+this.data+"."+this.fileformat;
-			//console.log(u);
-			var json = jQuery.ajax({
-				url: u,
-			type: "GET",
-			dataType: "json",
-			async: false,
-			success: function (data) {
-				//console.log(data);
-				var keys = Object.keys(data);
-				thekey = keys[0];
-				resits = data[thekey];
-			}})
-			this.items=resits;
-			//console.log(this.items);
-		
-		
-		//var keys = Object.keys(json);
-		//console.log(keys.len)
-		//for (key in keys) {
-			//console.log("key#"+key+": "+keys[key]);
+	<style>
+		/*Treat the host resume-cards element as a flexible container*/
+		:host {
+			display: block;
+			@apply (--layout-horizontal);
+			@apply (--layout-wrap);
+			padding: 0 0 0 5px;
 		}
-		//thekey = keys[0];
-		//items = json[thekey];
-    })
-		  
-		  
-    })
-	
+
+		.resumecard {
+			@apply (--layout-start);
+			@apply (--layout-horizontal);
+			margin: 0 25px 10px 0;
+			padding: 5px 5px 5px 5px
+		}
+	</style>
+
+	<template>
+		<template is="dom-repeat" items="{{items}}" as="carditem">
+			<paper-material elevation="1" class="resumecard">
+				<article id="{{genindex(carditem,'')}}">
+					<div>{{thing}}</div>
+					<h3>{{carditem.title}}</h3>
+					<div>{{carditem.dates}}</div>
+					<div id="{{genindex(carditem,'picts')}}">
+						<template is="dom-repeat" items="{{carditem.images}}">
+							<picture>
+								<source srcset="{{srcsetter(item,'large')}}" media="(max-width: 810px)">
+								<source srcset="{{srcsetter(item,'medium')}}" media="(max-width: 600px)">
+								<source srcset="{{srcsetter(item,'small')}}" media="(max-width: 441px)">
+								<img src = "{{srcer(item,'medium')}}">
+							</picture>
+						</template>
+					</div>
+					<div class="skills-box">
+						<div>SKILLS:&nbsp</div>
+						<ul class="section-skills">
+							<template is="dom-repeat" items="{{carditem.skills}}" as="skill">
+							<li>{{skill}}</li>
+							</template>
+						</ul>
+					</div>
+					<template is="dom-repeat" items="{{_toArray(carditem)}}" as="therest" filter="remainder">
+						<div class="the-rest"><div>{{therest.name}}</div><div>{{therest.value}}</div></div>
+					</template>
+				</article>
+			</paper-material>
+		</template>
+	</template>
+
+	<script>
+		(function () {
+			Polymer({
+				is: 'resume-cards',
+				properties: {
+					items: {
+					type: Array,
+					notify: true,
+					},
+				data: {
+					type: String,
+					value: "resume",
+					},
+				fileformat: {
+					type: String,
+					value: "json"
+					}
+				},
+			
+			/*Allows "iterating" over name/value pairs
+			see http://stackoverflow.com/questions/30781500/how-can-i-iterate-over-a-js-objects-key-values-in-polymer-1-0
+			*/
+			_toArray: function(obj) {
+				return Object.keys(obj).map(function(key) {
+					return {name: key, value: obj[key]};
+				});
+			},
+			
+			/*gets the rest of the data on the object, not counting the data that iss specifically handled for all resume-cards*/
+			remainder: function(card) {
+				return card.name != "title" && card.name != "dates" && card.name != "skills" && card.name != "images";
+			},
+			
+			/*In case it proves important to have a unique id for each item*/
+			genindex: function(card,prefix) {
+				var cardid = card.title ? prefix+card.title.replace(" ","_") : prefix+Math.floor((Math.random()*10000)+1); 
+				return cardid
+			},
+			
+			/*for srcset in picture/sources*/
+			srcsetter: function(image,size) {
+				var ss =  image+'-'+size+'_hi.jpg 2x, '+image+'-'+size+'_lo.jpg';
+				return ss;
+			},
+			
+			/*for ordinary src inside img, default is always lo*/
+			srcer: function(im,size) {
+				return im+'-'+size+'_lo.jpg';
+			},
+			
+			/*load the data from external json into local object*/
+			ready: function() {
+				//console.log("in resume-cards ready");
+				var resits = [];
+				var u = "js/"+this.data+"."+this.fileformat;
+				var json = jQuery.ajax({
+					url: u,
+					type: "GET",
+					dataType: "json",
+					async: false,
+					success: function (data) {
+					//console.log(data);
+						var keys = Object.keys(data);
+						thekey = keys[0];
+						resits = data[thekey];
+					}
+				})
+				this.items=resits;
+				//console.log(this.items);
+			}
+		})
+			  
+	})
 	()
-	
-	
-	
-	
-
-
-
-
-
-
-
-  </script>
-
+	</script>
 </dom-module>
-
-<!--Technique for styling based on number of sibling elements, may help for responsive card ordering
- Stolen from http://lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/ -->
-<!--<style>
-/* one item */
-li:first-child:nth-last-child(1) {
-	width: 100%;
-}
-
-/* two items */
-li:first-child:nth-last-child(2),
-li:first-child:nth-last-child(2) ~ li {
-	width: 50%;
-}
-
-/* three items */
-li:first-child:nth-last-child(3),
-li:first-child:nth-last-child(3) ~ li {
-	width: 33.3333%;
-}
-
-/* four items */
-li:first-child:nth-last-child(4),
-li:first-child:nth-last-child(4) ~ li {
-	width: 25%;
-}
-</style>-->
-
-
-<!--stolen from example referenced here:
-http://stackoverflow.com/questions/30781500/how-can-i-iterate-over-a-js-objects-key-values-in-polymer-1-0
-https://github.com/Polymer/polymer/issues/1846
-
-<test-element obj='{"a": 1, "b": 2, "c": 3}'></test-element>
-
-  <dom-module id="test-element">
-    <template>
-
-      <template is="dom-repeat" items="{{_toArray(obj)}}">
-        name: <span>{{item.name}}</span><br>
-        value: <span>{{item.value}}</span><br>
-        <hr>
-      </template>
-
-    </template>
-    <script>
-
-      Polymer({
-
-        properties: {
-          obj: Object
-        },
-
-        _toArray: function(obj) {
-          return Object.keys(obj).map(function(key) {
-            return {name: key, value: obj[key]};
-          });
-        }
-
-      });
-    </script>
-
-  </dom-module>
-  -->

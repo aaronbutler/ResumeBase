@@ -1,5 +1,5 @@
 {"miscellaneous": [
-			{
+		{
 				"title": "Sabermetrics",
 				"dates": "2015",
 				"provider": "Boston University through EdX",

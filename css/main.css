@@ -76,7 +76,6 @@ a:visited {
 	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	align-items: center;
-	/*justify-content: space-around;*/
 }
 
 .header-name {
@@ -118,10 +117,6 @@ section {
 	flex-direction: column;
 }
 
-section div {
-	//width: 50%;
-}
-
 .resumecard {
 	max-width: 45%;
 }
@@ -144,10 +139,6 @@ section div {
 .the-rest div:first-of-type:after {
 	content: ":\a0";
 }
-
-/*.the-rest div:last-of-type:before {
-	content: " ";
-}*/
 
 .skills {
 	display: inline;
@@ -192,10 +183,6 @@ section div {
 	flex-flow: row wrap;
 }
 
-/*.section-skills li:first-child:before {
-	content: ": ";
-}*/
-
 .section-skills li:after {
 	content: ", ";
 }
@@ -216,17 +203,12 @@ section div {
 
 #map-div {
 	height: 300px;
-	/*max-height: 100%;*/
 	max-width: 95%;
 }
 
 footer {
 	height: 55px;
 	background: #3f51b5;
-}
-
-paper-material {
-//opacity: 0.8;
 }
 
 circle {
